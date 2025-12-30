@@ -40,10 +40,10 @@ st.markdown("""
 def load_resources():
     try:
         resources = {
-            'lr': joblib.load(r'f:/Proyectos/Mineria de Datos/model_final_regression.pkl'),
-            'imp_reg': joblib.load(r'f:/Proyectos/Mineria de Datos/imputer_regression.pkl'),
-            'feats': joblib.load(r'f:/Proyectos/Mineria de Datos/features_list.pkl'),
-            'iso': joblib.load(r'f:/Proyectos/Mineria de Datos/model_anomalias.pkl')
+            'lr': joblib.load('model_final_regression.pkl'),
+            'imp_reg': joblib.load('imputer_regression.pkl'),
+            'feats': joblib.load('features_list.pkl'),
+            'iso': joblib.load('model_anomalias.pkl')
         }
         return resources
     except Exception as e:
@@ -147,7 +147,7 @@ if res:
         st.write("Esta sección identifica alumnos que rompen la lógica común del colegio.")
         
         # 1. Carga de datos base
-        df_csv = pd.read_csv('f:/Proyectos/Mineria de Datos/dataset_maestro_final_finalisimo.csv')
+        df_csv = pd.read_csv('dataset_maestro_final_finalisimo.csv')
         df_anom = df_csv[['Asist_P2', 'Global_P2', 'RUT', 'Curso_Oficial']].dropna()
         
         # 2. FILTRO DE CURSOS (Dinámico)
